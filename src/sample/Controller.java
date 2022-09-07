@@ -41,13 +41,16 @@ public class Controller {
     public void calculate(KeyEvent keyEvent) {
 
         //Delete non digits chars
-        if (!sumEur.getText().isEmpty()){
+        if (!sumEur.getText().isEmpty())
             sumEur.setText(sumEur.getText().replaceAll("[^\\d.]", ""));
-            sumEur.positionCaret(sumEur.getText().length());
-        }
+
+
+        if (sumEur.getText().length()>15)
+            sumEur.setText(sumEur.getText().substring(0,15));
+
+        sumEur.positionCaret(sumEur.getText().length());
 
     refresh();
-            //sumOther.setText(String.valueOf(Integer.parseInt(sumEur.getText())*10));
 
     }
 
